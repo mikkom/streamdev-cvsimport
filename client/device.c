@@ -1,5 +1,5 @@
 /*
- *  $Id: device.c,v 1.1 2004/12/30 22:44:00 lordjaxom Exp $
+ *  $Id: device.c,v 1.1.1.1 2004/12/30 22:44:00 lordjaxom Exp $
  */
  
 #include "client/device.h"

@@ -1,5 +1,5 @@
 /*
- *  $Id: remote.c,v 1.1 2004/12/30 22:44:02 lordjaxom Exp $
+ *  $Id: remote.c,v 1.1.1.1 2004/12/30 22:44:02 lordjaxom Exp $
  */
  
 #include "client/remote.h"

@@ -1,5 +1,5 @@
 /*
- *  $Id: assembler.h,v 1.1 2004/12/30 22:44:04 lordjaxom Exp $
+ *  $Id: assembler.h,v 1.1.1.1 2004/12/30 22:44:04 lordjaxom Exp $
  */
 
 #ifndef VDR_STREAMDEV_ASSEMBLER_H

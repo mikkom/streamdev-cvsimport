@@ -1,5 +1,5 @@
 /*
- *  $Id: connectionHTTP.c,v 1.1 2004/12/30 22:44:19 lordjaxom Exp $
+ *  $Id: connectionHTTP.c,v 1.1.1.1 2004/12/30 22:44:19 lordjaxom Exp $
  */
  
 #include "server/connectionHTTP.h"

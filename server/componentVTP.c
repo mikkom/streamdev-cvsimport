@@ -1,5 +1,5 @@
 /*
- *  $Id: componentVTP.c,v 1.1 2004/12/30 22:44:19 lordjaxom Exp $
+ *  $Id: componentVTP.c,v 1.1.1.1 2004/12/30 22:44:19 lordjaxom Exp $
  */
  
 #include "server/componentVTP.h"

@@ -1,5 +1,5 @@
 /*
- *  $Id: suspend.c,v 1.1 2004/12/30 22:44:21 lordjaxom Exp $
+ *  $Id: suspend.c,v 1.1.1.1 2004/12/30 22:44:21 lordjaxom Exp $
  */
  
 #include "server/suspend.h"

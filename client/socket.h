@@ -1,5 +1,5 @@
 /*
- *  $Id: socket.h,v 1.1 2004/12/30 22:44:04 lordjaxom Exp $
+ *  $Id: socket.h,v 1.1.1.1 2004/12/30 22:44:04 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_CLIENT_CONNECTION_H

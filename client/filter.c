@@ -1,5 +1,5 @@
 /*
- *  $Id: filter.c,v 1.1 2004/12/30 22:44:04 lordjaxom Exp $
+ *  $Id: filter.c,v 1.1.1.1 2004/12/30 22:44:04 lordjaxom Exp $
  */
 
 #include "client/filter.h"

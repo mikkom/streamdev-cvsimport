@@ -1,5 +1,5 @@
 /*
- *  $Id: componentHTTP.c,v 1.1 2004/12/30 22:44:19 lordjaxom Exp $
+ *  $Id: componentHTTP.c,v 1.1.1.1 2004/12/30 22:44:19 lordjaxom Exp $
  */
  
 #include "server/componentHTTP.h"

@@ -1,5 +1,5 @@
 /*
- *  $Id: remote.h,v 1.1 2004/12/30 22:44:03 lordjaxom Exp $
+ *  $Id: remote.h,v 1.1.1.1 2004/12/30 22:44:03 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_REMOTE_H

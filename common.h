@@ -1,5 +1,5 @@
 /*
- *  $Id: common.h,v 1.1 2004/12/30 22:43:55 lordjaxom Exp $
+ *  $Id: common.h,v 1.1.1.1 2004/12/30 22:43:55 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_COMMON_H

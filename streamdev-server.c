@@ -3,7 +3,7 @@
  *
  * See the README file for copyright information and how to reach the author.
  *
- * $Id: streamdev-server.c,v 1.1 2004/12/30 22:43:59 lordjaxom Exp $
+ * $Id: streamdev-server.c,v 1.1.1.1 2004/12/30 22:43:59 lordjaxom Exp $
  */
 
 #include "streamdev-server.h"

@@ -1,5 +1,5 @@
 /*
- *  $Id: server.c,v 1.1 2004/12/30 22:44:20 lordjaxom Exp $
+ *  $Id: server.c,v 1.1.1.1 2004/12/30 22:44:20 lordjaxom Exp $
  */
 
 #include "server/server.h"

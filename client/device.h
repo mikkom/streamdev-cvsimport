@@ -1,5 +1,5 @@
 /*
- *  $Id: device.h,v 1.1 2004/12/30 22:44:00 lordjaxom Exp $
+ *  $Id: device.h,v 1.1.1.1 2004/12/30 22:44:00 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_DEVICE_H

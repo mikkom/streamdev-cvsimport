@@ -1,5 +1,5 @@
 /*
- *  $Id: menu.h,v 1.1 2004/12/30 22:44:02 lordjaxom Exp $
+ *  $Id: menu.h,v 1.1.1.1 2004/12/30 22:44:02 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_MENU_H

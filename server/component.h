@@ -1,5 +1,5 @@
 /*
- *  $Id: component.h,v 1.1 2004/12/30 22:44:18 lordjaxom Exp $
+ *  $Id: component.h,v 1.1.1.1 2004/12/30 22:44:18 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_SERVERS_COMPONENT_H

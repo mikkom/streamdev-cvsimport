@@ -1,5 +1,5 @@
 /*
- *  $Id: suspend.h,v 1.1 2004/12/30 22:44:26 lordjaxom Exp $
+ *  $Id: suspend.h,v 1.1.1.1 2004/12/30 22:44:26 lordjaxom Exp $
  */
  
 #ifndef VDR_STREAMDEV_SUSPEND_H

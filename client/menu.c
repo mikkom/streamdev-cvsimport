@@ -1,5 +1,5 @@
 /*
- *  $Id: menu.c,v 1.1 2004/12/30 22:44:01 lordjaxom Exp $
+ *  $Id: menu.c,v 1.1.1.1 2004/12/30 22:44:01 lordjaxom Exp $
  */
  
 #include <vdr/menuitems.h>
