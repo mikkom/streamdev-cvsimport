@@ -1,5 +1,5 @@
 /*
- *  $Id: setup.c,v 1.9 2009/10/13 06:38:47 schmirl Exp $
+ *  $Id: setup.c,v 1.9.2.1 2010/06/11 06:06:03 schmirl Exp $
  */
  
 #include <vdr/menuitems.h>
@@ -50,7 +50,7 @@ const char* cStreamdevServerMenuSetupPage::StreamTypes[st_Count - 1] = {
 	"PES",
 	"PS",
 	"ES",
-	"Extern"
+	"EXT"
 };
 
 const char* cStreamdevServerMenuSetupPage::SuspendModes[sm_Count] = {

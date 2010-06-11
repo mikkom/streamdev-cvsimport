@@ -1,6 +1,16 @@
 VDR Plugin 'streamdev' Revision History
 ---------------------------------------
 
+- added support for HTTP method HEAD
+- rewrite of externremux.sh, including support for various URL parameters,
+  logging and improved shutdown
+- start externremux script in a separate process group
+- changed HTTP URL path for externremux from EXTERN to EXT (suggested by
+  Rolf Ahrenberg)
+- HTTP headers now have to be emitted by externremux script
+- pass channel related information and URL parameters to externremux script
+  through environment
+- implement CGI like interface for externremux script
 - dropped "Synchronize EPG" feature. Please use epgsync-plugin instead
   (available from http://vdr.schmirler.de)
 - proper tsplay-0.2 patch detection. tsplay-0.1 is no longer recognized

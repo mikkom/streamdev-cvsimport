@@ -1,5 +1,5 @@
 /*
- *  $Id: connectionVTP.c,v 1.27 2010/01/29 12:03:02 schmirl Exp $
+ *  $Id: connectionVTP.c,v 1.27.2.1 2010/06/11 06:06:03 schmirl Exp $
  */
  
 #include "server/connectionVTP.h"
@@ -881,8 +881,8 @@ bool cConnectionVTP::CmdCAPS(char *Opts)
 		return Respond(220, "Capability \"%s\" accepted", Opts);
 	}
 
-	if (strcasecmp(Opts, "EXTERN") == 0) {
-		m_StreamType = stExtern;
+	if (strcasecmp(Opts, "EXT") == 0) {
+		m_StreamType = stEXT;
 		return Respond(220, "Capability \"%s\" accepted", Opts);
 	}
 
@@ -1078,7 +1078,7 @@ bool cConnectionVTP::CmdTUNE(char *Opts)
 		return Respond(560, "Channel not available");
 
 	delete m_LiveStreamer;
-	m_LiveStreamer = new cStreamdevLiveStreamer(1);
+	m_LiveStreamer = new cStreamdevLiveStreamer(1, this);
 	m_LiveStreamer->SetChannel(chan, m_StreamType);
 	m_LiveStreamer->SetDevice(dev);
 	if(m_LiveSocket)

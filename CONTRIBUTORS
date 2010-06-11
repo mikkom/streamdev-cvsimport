@@ -37,6 +37,7 @@ Rolf Ahrenberg
   for improving LIMIKUUTIO and PARENTALRATING patch detection
   for suggesting to include the charset in HTTP replies
   for requesting replacement of asprintf calls
+  for suggesting to change the URL path from EXTERN to EXT
 
 Rantanen Teemu
   for providing vdr-incompletesections.diff

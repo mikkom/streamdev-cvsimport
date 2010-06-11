@@ -18,6 +18,7 @@ Contents:
 2.1  VDR 1.4.x and older
 2.2  VDR 1.6.0 and above
 2.3  Updating from streamdev 0.3.x
+2.4  Updating from streamdev 0.5.0pre (recent CVS version)
 3.   Usage
 3.1  Usage HTTP server
 3.2  Usage IGMP multicast server
@@ -27,7 +28,8 @@ Contents:
 4.1  Plugins for VDR-to-VDR clients
 4.2  Plugins for Server
 4.3  Alternatives
-5.   Known Problems
+5.   externremux.sh
+6.   Known Problems
 
 
 1. Description:
@@ -134,6 +136,23 @@ entry? If your VDR machine is connected to the Internet, this line gives
 prevent this (e.g. firewall). You might want to remove this line and enable
 HTTP authentication instead.
 
+Now continue reading with the next chapter. The changes described there apply
+to you as well.
+
+2.4  Updating from streamdev 0.5.0pre (recent CVS version)
+----------------------------------------------------------
+
+Streamdev server's externremux script became responsible for emitting all HTTP
+headers. A quick and dirty extension to your current script would be:
+
+echo -ne 'Content-type: video/mpeg\r\n'
+echo -ne '\r\n'
+
+However I encourage you to try the new externremux.sh script shipped with the
+streamdev source distribution.
+
+To emphasize the required change in externremux, the URL path for passing the
+stream through externremux has changed from EXTERN to EXT.
 
 3. Usage:
 ---------
@@ -176,7 +195,7 @@ TS     Transport Stream (i.e. a dump from the device)
 PES    Packetized Elemetary Stream (VDR's native recording format)
 PS     Program Stream (SVCD, DVD like stream)
 ES     Elementary Stream (only Video, if available, otherwise only Audio)
-EXTERN Pass stream through external script (e.g. for converting with mencoder)
+EXT    Pass stream through external script (e.g. for converting with mencoder)
 
 Assuming that you leave the default port (3000), point your web browser to
 
@@ -199,16 +218,17 @@ http://hostname:3000/TS/3
 http://hostname:3000/PES/S19.2E-0-12480-898
 
 The first one would deliver the stream in TS, the second one in PES format. 
-Possible values are 'PES', 'TS', 'PS', 'ES' and 'EXTERN'. You need to specify
+Possible values are 'PES', 'TS', 'PS', 'ES' and 'EXT'. You need to specify
 the ES format explicitly if you want to listen to radio channels. Play them
 back i.e. with mpg123.
 
 mpg123 http://hostname:3000/ES/200
 
-With 'EXTERN' you can also add a parameter which is passed as argument to the
-externremux script.
-
-http://hostname:3000/EXTERN;some_parameter/3
+With 'EXT' you can also add parameters which are passed as arguments to the
+externremux script (e.g. http://hostname:3000/EXT;param1=value1;param2=value2/3)
+Check your externremux.sh script for the parameters it understands. For details
+on how to modify or write your own externremux.sh, please see the chapter upon
+externremux.sh further down.
 
 If you want to access streamdev's HTTP server from the Internet, do *not* grant
 access for anyone by allowing any IP in "streamdevhosts.conf". Instead, pass the
@@ -389,7 +409,57 @@ With its networking option, xineliboutput provides an alternative to streamdev.
 You will get the picture of the server VDR, including its OSD. However you
 won't get independent clients, as they all share the same output.
 
-5. Known Problems:
+5. externremux.sh:
+------------------
+
+When selecting streamtype "EXT", the TS stream from VDR is passed through an
+external program for further processing. By default a script installed at
+VDRCONFDIR/plugins/streamdev/externremux.sh is expected, however you may
+specify a different location as parameter -r to the streamdev-server plugin
+(see chapter upon Installation above).
+
+The TS stream is passed to the script on stdin, the resulting stream is expected
+on stdout. The following parameters are passed to the script in the environment:
+
+* Information on the channel:
+REMUX_CHANNEL_ID    VDR channel ID
+REMUX_CHANNEL_NAME  Channel name
+REMUX_VTYPE         Video type (2 for MPEG-2)
+REMUX_VPID          Video PID (undefined if audio only)
+REMUX_PPID          PCR PID (undefined if equal to VPID)
+REMUX_TPID          Teletext PID (undefined if not available)
+REMUX_APID          Space separated list of audio pids
+REMUX_ALANG         Space separated list of audio languages
+REMUX_DPID          Space separated list of dolby pids
+REMUX_DLANG         Space separated list of dolby languages
+REMUX_SPID          Space separated list of subtitle pids
+REMUX_SLANG         Space separated list of subtitle languages
+All (user supplied) parameters, prefixed with REMUX_PARAM_ (e.g. REMUX_PARAM_x)
+
+* Information on the connection (CGI like)
+REMOTE_ADDR         Client IP
+SERVER_NAME         Local IP
+SERVER_PORT         Local port
+SERVER_PROTOCOL     Streamdev protocol (HTTP, VTP, IGMP)
+SERVER_SOFTWARE     Streamdev version
+All HTTP headers converted to uppercase, '-' replaced by '_' (e.g. USER_AGENT)
+
+The script should perform the following steps (pseudocode):
+
+if (SERVER_PROTOCOL == HTTP)
+  write headers (including Content-Type) to STDOUT
+  write empty line to STDOUT
+  if (REQUEST_METHOD == HEAD)
+    exit
+  endif
+endif
+while (read STDIN)
+  remux to STDOUT
+wend
+
+onSIGINT/SIGKILL: cleanup and exit
+
+6. Known Problems:
 ------------------
 
 * In VDR-to-VDR setup, the availability of a channel is checked with a different
