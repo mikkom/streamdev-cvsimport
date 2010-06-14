@@ -18,7 +18,8 @@ Contents:
 2.1  VDR 1.4.x and older
 2.2  VDR 1.6.0 and above
 2.3  Updating from streamdev 0.3.x
-2.4  Updating from streamdev 0.5.0pre (recent CVS version)
+2.4  Updating from streamdev 0.4.x
+2.5  Updating from streamdev 0.4.0pre/0.5.0pre (recent CVS versions)
 3.   Usage
 3.1  Usage HTTP server
 3.2  Usage IGMP multicast server
@@ -139,8 +140,8 @@ HTTP authentication instead.
 Now continue reading with the next chapter. The changes described there apply
 to you as well.
 
-2.4  Updating from streamdev 0.5.0pre (recent CVS version)
-----------------------------------------------------------
+2.4  Updating from streamdev 0.4.0pre/0.5.0pre (recent CVS versions)
+--------------------------------------------------------------------
 
 Streamdev server's externremux script became responsible for emitting all HTTP
 headers. A quick and dirty extension to your current script would be:
@@ -153,6 +154,18 @@ streamdev source distribution.
 
 To emphasize the required change in externremux, the URL path for passing the
 stream through externremux has changed from EXTERN to EXT.
+
+Futhermore the location of streamdevhosts.conf and the default location of
+externremux.sh changed. Please rename directory VDRCONFDIR/plugins/streamdev to
+VDRCONFDIR/plugins/streamdev-server.
+
+2.5  Updating from streamdev 0.4.x
+----------------------------------
+
+The location of streamdevhosts.conf and the default location of externremux.sh
+changed. Please rename the directory VDRCONFDIR/plugins/streamdev to
+VDRCONFDIR/plugins/streamdev-server.
+
 
 3. Usage:
 ---------

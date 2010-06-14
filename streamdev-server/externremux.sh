@@ -2,7 +2,7 @@
 #
 # externremux.sh - sample remux script using mencoder for remuxing.
 #
-# Install this script as VDRCONFDIR/plugins/streamdev/externremux.sh
+# Install this script as VDRCONFDIR/plugins/streamdev-server/externremux.sh
 #
 # The parameter QUALITY selects the default remux parameters. Adjust
 # to your needs and point your web browser to http://servername:3000/ext/

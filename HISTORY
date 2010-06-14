@@ -1,6 +1,8 @@
 VDR Plugin 'streamdev' Revision History
 ---------------------------------------
 
+- separated language resources of client and server
+- restructured build process
 - added support for HTTP method HEAD
 - rewrite of externremux.sh, including support for various URL parameters,
   logging and improved shutdown
