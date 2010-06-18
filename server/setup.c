@@ -1,5 +1,5 @@
 /*
- *  $Id: setup.c,v 1.9.2.1 2010/06/11 06:06:03 schmirl Exp $
+ *  $Id: setup.c,v 1.9.2.2 2010/06/18 19:07:32 schmirl Exp $
  */
  
 #include <vdr/menuitems.h>
@@ -62,15 +62,25 @@ const char* cStreamdevServerMenuSetupPage::SuspendModes[sm_Count] = {
 cStreamdevServerMenuSetupPage::cStreamdevServerMenuSetupPage(void) {
 	m_NewSetup = StreamdevServerSetup;
 
+	Set();
+}
+
+cStreamdevServerMenuSetupPage::~cStreamdevServerMenuSetupPage() {
+}
+
+void cStreamdevServerMenuSetupPage::Set(void) {
 	static const char* modes[sm_Count];
 	for (int i = 0; i < sm_Count; i++)
 		modes[i] = tr(SuspendModes[i]);
 
+	int current = Current();
+	Clear();
 	AddCategory (tr("Common Settings"));
 	Add(new cMenuEditIntItem (tr("Maximum Number of Clients"), &m_NewSetup.MaxClients, 0, 100));
 
 	Add(new cMenuEditStraItem(tr("Suspend behaviour"),         &m_NewSetup.SuspendMode, sm_Count, modes));
-	Add(new cMenuEditBoolItem(tr("Client may suspend"),        &m_NewSetup.AllowSuspend));
+	if (m_NewSetup.SuspendMode == smOffer)
+		Add(new cMenuEditBoolItem(tr("Client may suspend"),        &m_NewSetup.AllowSuspend));
 	
 	AddCategory (tr("VDR-to-VDR Server"));
 	Add(new cMenuEditBoolItem(tr("Start VDR-to-VDR Server"),   &m_NewSetup.StartVTPServer));
@@ -87,10 +97,8 @@ cStreamdevServerMenuSetupPage::cStreamdevServerMenuSetupPage(void) {
 	Add(new cMenuEditIntItem (tr("Multicast Client Port"),     &m_NewSetup.IGMPClientPort, 0, 65535));
 	Add(new cMenuEditStraItem(tr("Multicast Streamtype"),      &m_NewSetup.IGMPStreamType, st_Count - 1, StreamTypes));
 	Add(new cMenuEditIpItem  (tr("Bind to IP"),                 m_NewSetup.IGMPBindIP));
-	SetCurrent(Get(1));
-}
-
-cStreamdevServerMenuSetupPage::~cStreamdevServerMenuSetupPage() {
+	SetCurrent(Get(current));
+	Display();
 }
 
 void cStreamdevServerMenuSetupPage::AddCategory(const char *Title) {
@@ -139,3 +147,10 @@ void cStreamdevServerMenuSetupPage::Store(void) {
 		cStreamdevServer::Initialize();
 }
 
+eOSState cStreamdevServerMenuSetupPage::ProcessKey(eKeys Key) {
+	int oldMode = m_NewSetup.SuspendMode;
+	eOSState state = cMenuSetupPage::ProcessKey(Key);
+	if (oldMode != m_NewSetup.SuspendMode)
+		Set();
+	return state;
+}
