@@ -1,6 +1,7 @@
 VDR Plugin 'streamdev' Revision History
 ---------------------------------------
 
+- updated Italian translation (thanks to Diego Pierotto)
 - config option "client may suspend" hidden if not applicable
 - updated and enhanced README
 - separated language resources of client and server
