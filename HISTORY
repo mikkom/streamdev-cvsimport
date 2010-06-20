@@ -1,6 +1,7 @@
 VDR Plugin 'streamdev' Revision History
 ---------------------------------------
 
+- fixed "plugin doesn't honor APIVERSION" (reported by carel@vdrportal)
 - updated Italian translation (thanks to Diego Pierotto)
 - config option "client may suspend" hidden if not applicable
 - updated and enhanced README
