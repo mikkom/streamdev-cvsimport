@@ -150,3 +150,4 @@ Eric Valette
 
 carel
   for reporting "plugin doesn't honor APIVERSION" error in new Makefile
+  for helping to find a way to cleanly shutdown externremux with mencoder

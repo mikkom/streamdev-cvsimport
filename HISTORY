@@ -1,6 +1,8 @@
 VDR Plugin 'streamdev' Revision History
 ---------------------------------------
  
+- using SIGINT in externremux to kill mencoder works better than SIGTERM;
+  especially x264 still needs a SIGKILL sometimes
 - added --remove-destination to cp commands installing plugins
 - fixed "plugin doesn't honor APIVERSION" (reported by carel@vdrportal)
 - updated Italian translation (thanks to Diego Pierotto)
