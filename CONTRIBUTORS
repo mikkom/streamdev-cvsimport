@@ -152,6 +152,7 @@ Eric Valette
 carel
   for reporting "plugin doesn't honor APIVERSION" error in new Makefile
   for helping to find a way to cleanly shutdown externremux with mencoder
+  for reporting that GetClippedNumProvidedSystems is no longer up-to-date
 
 wolfi.m
   for reporting a typo in externremux quality parameter value
@@ -171,3 +172,13 @@ Timothy D. Lenz
 
 Rainer Blickle
   for reporting that channel switches may interrupt live TV on the server
+
+Gavin Hamill
+  for reporting that ES/PS/PES no longer works
+
+Michal Novotny
+  for reporting that switching away live TV fails when "always suspended"
+
+wtor
+  for reporting that a client may interrupt replaying on FF cards
+  for helping to debug channel switch issues on FF cards
